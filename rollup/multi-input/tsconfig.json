@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "ES2015",
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "sourceMap": false,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "skipDefaultLibCheck": true,
+    "noEmitOnError": false,
+    "skipLibCheck": true,
+    "lib": ["dom", "esnext"],
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
+  }
+}
