@@ -1,7 +1,7 @@
 {
-  "name": "multi-export",
+  "name": "multi-input",
   "version": "1.0.0",
-  "description": "多出口打包",
+  "description": "多入口打包",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "typings": "dist/esm/index.d.ts",
