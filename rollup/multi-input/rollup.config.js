@@ -18,33 +18,16 @@ export default [
   {
     input: "src/index.ts",
     output: {
-      dir: "dist/cjs", // 打包到cjs目录
-      format: "cjs", // 以cjs模式打包
-      exports: "named", // 指定导出模式（自动、默认、命名、无）
-      preserveModules: true, // 保留模块结构，以原来的文件夹结构输出js
-      preserveModulesRoot: "src", // 将保留的模块放在根级别的此路径下
-    },
-    plugins: [
-      ...getBasePlugins({
-        outDir: "dist/cjs", // 声明文件输出目录
-        declaration: true,
-        // 指定声明文件的解析目录，这里主要是用于忽略adapter目录
-        filterRoot: "src",
-      }),
-    ],
-  },
-  {
-    input: "src/index.ts",
-    output: {
-      dir: "dist/esm",
+      dir: "dist",
       format: "esm",
       exports: "named",
       preserveModules: true,
       preserveModulesRoot: "src",
+      sourcemap: true,
     },
     plugins: [
       ...getBasePlugins({
-        outDir: "dist/esm",
+        outDir: "dist",
         declaration: true,
         filterRoot: "src",
       }),
@@ -58,34 +41,14 @@ export default [
     },
     output: [
       {
-        dir: "dist/cjs/adapter",
-        format: "cjs",
-      },
-    ],
-    plugins: [
-      ...getBasePlugins({
-        outDir: "dist/cjs/adapter",
-        declaration: true,
-        // 指定声明文件的解析目录，这里主要是用于忽略src目录
-        // 注意tsconfig.json中不要指定rootDir，否则会导致adapter目录识别不到
-        filterRoot: "adapter",
-      }),
-    ],
-  },
-  {
-    input: {
-      "web-request": "adapter/web-request.ts",
-      "wx-request": "adapter/wx-request.ts",
-    },
-    output: [
-      {
-        dir: "dist/esm/adapter",
+        dir: "lib",
         format: "esm",
+        sourcemap: true
       },
     ],
     plugins: [
       ...getBasePlugins({
-        outDir: "dist/esm/adapter",
+        outDir: "lib",
         declaration: true,
         filterRoot: "adapter",
       }),

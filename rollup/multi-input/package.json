@@ -2,28 +2,23 @@
   "name": "multi-input",
   "version": "1.0.0",
   "description": "多入口打包",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "typings": "dist/esm/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "typings": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c rollup.config.js --bundleConfigAsCjs",
-    "clean": "rimraf -rf ./dist"
+    "clean": "rimraf -rf ./dist ./lib"
   },
-  "files": ["dist"],
+  "files": ["dist", "lib"],
   "exports": {
-    ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
+    ".": "./dist/index.js",
+    "./lib/web-request": {
+      "import": "./lib/web-request.js",
+      "types": "./lib/web-request.d.ts"
     },
-    "./adapter/web-request": {
-      "import": "./dist/esm/adapter/web-request.js",
-      "require": "./dist/cjs/adapter/web-request.cjs",
-      "types": "./dist/esm/adapter/web-request.d.ts"
-    },
-    "./adapter/wx-request": {
-      "import": "./dist/esm/adapter/wx-request.js",
-      "require": "./dist/cjs/adapter/wx-request.cjs",
-      "types": "./dist/esm/adapter/wx-request.d.ts"
+    "./lib/wx-request": {
+      "import": "./lib/wx-request.js",
+      "types": "./lib/wx-request.d.ts"
     }
   },
   "author": "1874",
